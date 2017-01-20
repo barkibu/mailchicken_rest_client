@@ -12,7 +12,7 @@ describe MailchickenRestClient do
 
   it 'does update a mail' do
     mail = create_mail
-    expect(MailchickenRestClient.send_mail(mail).code).to eq(200)
+    expect(MailchickenRestClient.update_mail(mail).code).to eq(200)
   end
 
   it 'does show mails' do
@@ -22,13 +22,18 @@ describe MailchickenRestClient do
   private
 
   def create_mail
-    MailchickenRestClient::Mail.new(sender: 'David Sender',
-                                    receiver: 'Pepe Receiver',
-                                    street_address: 'Stree prueba',
-                                    city: 'City', company: 'Compay',
-                                    country: 'Spain', state: 'State',
-                                    postal_code: '15100',
-                                    extra_info: 'extra info',
-                                    content: 'Content')
+    mail = MailchickenRestClient::Mail.new()
+    mail.id = 1
+    mail.sender = 'David Sender'
+    mail.receiver = 'Pepe Receiver'
+    mail.street_address = 'Stree prueba'
+    mail.city = 'City'
+    mail.company = 'Compay'
+    mail.country = 'Spain'
+    mail.state = 'State'
+    mail.postal_code = '15100'
+    mail.extra_info = 'extra info'
+    mail.content = 'Content'
+    mail
   end
 end
