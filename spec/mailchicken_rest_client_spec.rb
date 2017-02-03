@@ -23,7 +23,7 @@ describe MailchickenRestClient do
 
   def create_mail
     mail = MailchickenRestClient::Mail.new()
-    mail.id = 1
+    mail.id = '1'
     mail.sender = 'David Sender'
     mail.receiver = 'Pepe Receiver'
     mail.street_address = 'Stree prueba'
